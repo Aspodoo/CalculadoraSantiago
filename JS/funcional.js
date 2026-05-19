@@ -1,103 +1,90 @@
-// CREAR LAS PROPIEDADES DEL OBJETO
+//CREAR LAS PROPIEDADES DEL OBJETO
 
 let p = {
+    
+    teclas:document.querySelectorAll("#calculadora ul li"),
+    accion:null,
+    digito:null,
+    operaciones:document.querySelector("#operaciones"),
+    cantisignos:0,
+    cantdecimal:false,
+    resultado:false, 
+}
 
-    teclas: document.querySelectorAll("#calculadora ul li"),
-    accion: null,
-    digito: null,
-    operaciones: document.querySelector("#operaciones"),
-    cantisignos: 0,
-    cantdecimal: false,
-    resultado: false
-
-};
-
-// CREAR LOS METODOS
-
+//Crear los metodos
 let m = {
-
     inicio:function()
     {
-        for (let i = 0; i < p.teclas.length; i++) 
+        for(let i = 0; i < p.teclas.length; i++ )
         {
-            p.teclas[i].addEventListener("click", m.oprimirtecla);
+            p.teclas[i].addEventListener("click",m.oprimirtecla)
         }
     },
-
-    oprimirtecla:function(tecla)
+    oprimirtecla: function(tecla)
     {
         p.accion = tecla.target.getAttribute("class");
-
         p.digito = tecla.target.innerHTML;
-
         console.log(p.digito);
+        m.calculadora(p.accion,p.digito);
 
-        m.calculadora(p.accion, p.digito);
     },
-
-    calculadora:function(accion, digito)
+    calculadora: function(accion,digito)
     {
-
         switch(accion)
         {
-
             case "numero":
+                p.cantisignos = 0;
 
-                console.log("numero");
 
+                //console.log("numero");
                 if(p.operaciones.innerHTML == "0")
                 {
                     p.operaciones.innerHTML = digito;
+                }else{
+                    //p.operaciones.innerHTML += digito;
+                    if(p.resultado){
+                        p.resultado = false;
+                        p.operaciones.innerHTML = digito;
+                    }else{
+                        p.operaciones.innerHTML += digito;
+                    }
                 }
-                else
-                {
-                    p.operaciones.innerHTML += digito;
-                }
-
             break;
 
             case "simbolo":
+                 p.cantisignos++;
+                 if(p.cantisignos == 1){
 
-                console.log("simbolo");
+                    if(p.operaciones.innerHTML == "0"){
+                        p.operaciones.innerHTML = "0";
+                    }else{
+                        p.operaciones.innerHTML += digito;
+                        p.cantdecimal = false;
+                    }
+                 }
+                //console.log("simbolo");
+               
+            break;
 
+            case"decimal":
+            if(!p.cantdecimal){
                 p.operaciones.innerHTML += digito;
-
+                p.cantdecimal = true;
+            }
+            //console.log("decimal");
             break;
 
-            case "decimal":
-
-                console.log("decimal");
-
-                p.operaciones.innerHTML += digito;
-
+            case"igual":
+            //console.log("igual");
+            p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
+            p.resultado = true;
             break;
-
-            case "igual":
-
-                console.log("igual");
-
-                try
-                {
-                    p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
-                }
-                catch(error)
-                {
-                    p.operaciones.innerHTML = "Error";
-                }
-
-            break;
-
         }
-    
+
     },
-    borrarcalculadora:function()
-    {
-        p.operaciones.innerHTML = 0;
+    borrarCalculadora: function(){
+        p.operaciones.innerHTML = "0";
     }
-
-
-};
-
-// INICIAR
+}
 
 m.inicio();
