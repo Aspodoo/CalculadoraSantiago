@@ -27,36 +27,74 @@ let m = {
     oprimirtecla:function(tecla)
     {
         p.accion = tecla.target.getAttribute("class");
+
         p.digito = tecla.target.innerHTML;
 
-        m.calculadora();
+        console.log(p.digito);
+
+        m.calculadora(p.accion, p.digito);
     },
 
-    calculadora:function()
+    calculadora:function(accion, digito)
     {
 
         switch(accion)
         {
 
             case "numero":
+
                 console.log("numero");
+
+                if(p.operaciones.innerHTML == "0")
+                {
+                    p.operaciones.innerHTML = digito;
+                }
+                else
+                {
+                    p.operaciones.innerHTML += digito;
+                }
+
             break;
 
             case "simbolo":
+
                 console.log("simbolo");
+
+                p.operaciones.innerHTML += digito;
+
             break;
 
             case "decimal":
+
                 console.log("decimal");
+
+                p.operaciones.innerHTML += digito;
+
             break;
 
             case "igual":
+
                 console.log("igual");
+
+                try
+                {
+                    p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
+                }
+                catch(error)
+                {
+                    p.operaciones.innerHTML = "Error";
+                }
+
             break;
 
         }
-
+    
+    },
+    borrarcalculadora:function()
+    {
+        p.operaciones.innerHTML = 0;
     }
+
 
 };
 
