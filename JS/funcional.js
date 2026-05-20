@@ -38,9 +38,21 @@ let m = {
 
         }
 
-        else if(tecla == "r"){
+             else if(tecla == "r"){
 
-    m.calculadora("raiz", "√");
+            m.calculadora("raiz", "√");
+
+        }
+
+        else if(tecla == "s"){
+
+        m.calculadora("seno", "sin");
+
+        }
+
+        else if(tecla == "c"){
+
+        m.calculadora("coseno", "cos");
 
         }
 
@@ -135,6 +147,26 @@ let m = {
              p.operaciones.innerHTML = Math.sqrt(valor);
 
             }
+
+            p.resultado = true;
+
+            break;
+
+            case "seno":
+
+            let valorSeno = eval(p.operaciones.innerHTML);
+
+            p.operaciones.innerHTML = Math.sin(valorSeno * Math.PI / 180);
+
+            p.resultado = true;
+
+            break;
+
+            case "coseno":
+
+            let valorCoseno = eval(p.operaciones.innerHTML);
+
+            p.operaciones.innerHTML = Math.cos(valorCoseno * Math.PI / 180);
 
             p.resultado = true;
 
