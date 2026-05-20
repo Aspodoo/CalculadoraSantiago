@@ -110,6 +110,12 @@ ul li{
     color: #fff;
 }
 
+/* botones simbolos */
+.raiz{
+    background: #ffb400;
+    color: #fff;
+}
+
 /* efecto hover en botones */
 .numero:hover{
     background: #38b892;
@@ -117,6 +123,11 @@ ul li{
 }
 
 .simbolo:hover{
+    background: #e69a00;
+    transform: scale(1.05);
+}
+    
+.raiz:hover{
     background: #e69a00;
     transform: scale(1.05);
 }

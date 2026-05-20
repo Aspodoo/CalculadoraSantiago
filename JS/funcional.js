@@ -34,9 +34,16 @@ let m = {
 
              else if(tecla == "."){
 
-            m.calculadora("numero", tecla);
+            m.calculadora("decimal", tecla);
 
         }
+
+        else if(tecla == "r"){
+
+    m.calculadora("raiz", "√");
+
+        }
+
         else if(tecla == "Enter"){
 
             m.calculadora("igual", "=");
@@ -115,13 +122,43 @@ let m = {
             //console.log("decimal");
             break;
 
-            case"igual":
-            //console.log("igual");
-            p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
-            p.resultado = true;
-            break;
-        }
+            case "raiz":
 
+            let valor = eval(p.operaciones.innerHTML);
+
+            if(valor < 0){
+
+            p.operaciones.innerHTML = "Error";
+
+            }else{
+
+             p.operaciones.innerHTML = Math.sqrt(valor);
+
+            }
+
+            p.resultado = true;
+
+            break;
+
+            case "igual":
+
+             // VALIDAR DIVISION POR 0
+            if (p.operaciones.innerHTML.includes("/0")) {
+
+                p.operaciones.innerHTML = "No se puede dividir";
+
+
+             } else {
+
+        p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
+        p.resultado = true;
+
+            }
+
+            break;
+            }
+
+            
     },
     borrarCalculadora: function(){
         p.operaciones.innerHTML = "0";
