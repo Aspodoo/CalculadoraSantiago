@@ -110,9 +110,21 @@ ul li{
     color: #fff;
 }
 
-/* botones simbolos */
+/* botones raiz */
 .raiz{
     background: #ffb400;
+    color: #fff;
+}
+
+/* botones simbolos adicionales */
+.seno, .coseno, .potencia{
+    background: #ffb400;
+    color: #fff;
+}
+
+/* botones de resultado */
+.igual, .decimal{
+    background: #00a2ff;
     color: #fff;
 }
 
@@ -129,6 +141,16 @@ ul li{
     
 .raiz:hover{
     background: #e69a00;
+    transform: scale(1.05);
+}
+
+.seno:hover, .coseno:hover, .potencia:hover{
+    background: #e69a00;
+    transform: scale(1.05);
+}
+
+.igual:hover, .decimal:hover{
+    background: #0089d8;
     transform: scale(1.05);
 }
 
