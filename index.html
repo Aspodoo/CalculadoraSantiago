@@ -1,50 +1,57 @@
 <!doctype html>
 <html lang="es">
-    <head> 
-        <meta charset="UTF-8">
-        <title>Calculadora</title>
-        <link rel="stylesheet" href="STYLES/estilos.css">
-        
-    </head>
-    <body>
-        <center>
-            <h1>Calculadora</h1>
-        </center>
 
-        <div id="calculadora">
+<head>
 
-            <div id="operaciones">0</div>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
 
-            <ul>
-                <li class="numero">1</li>
-                <li class="numero">2</li>
-                <li class="numero">3</li>
-                <li class="simbolo">+</li>
-                <li class="numero">4</li>
-                <li class="numero">5</li>
-                <li class="numero">6</li>
-                <li class="simbolo">-</li>
-                <li class="numero">7</li>
-                <li class="numero">8</li>
-                <li class="numero">9</li>
-                <li class="simbolo">*</li>
-                <li class="numero">0</li>
-                <li class="decimal">.</li>
-                <li class="igual">=</li>
-                <li class="simbolo">/</li>
-            </ul>
+    <link rel="stylesheet" href="STYLES/estilos.css">
 
-         <div id="borrar" onclick="m.borrarcalculadora()">Borrar</div>
+</head>
 
+<body>
 
+    <center>
+        <h1>Calculadora</h1>
+    </center>
 
+    <div id="calculadora">
 
+        <div id="operaciones">0</div>
 
+        <ul>
 
+            <li class="numero">1</li>
+            <li class="numero">2</li>
+            <li class="numero">3</li>
+            <li class="simbolo">+</li>
 
+            <li class="numero">4</li>
+            <li class="numero">5</li>
+            <li class="numero">6</li>
+            <li class="simbolo">-</li>
+
+            <li class="numero">7</li>
+            <li class="numero">8</li>
+            <li class="numero">9</li>
+            <li class="simbolo">*</li>
+
+            <li class="numero">0</li>
+            <li class="decimal">.</li>
+            <li class="igual">=</li>
+            <li class="simbolo">/</li>
+
+        </ul>
+
+        <div id="borrar" onclick="m.borrarCalculadora()">
+            Borrar
         </div>
-        
 
-    </body>
+    </div>
+
     <script src="JS/funcional.js"></script>
+
+</body>
+
 </html>
