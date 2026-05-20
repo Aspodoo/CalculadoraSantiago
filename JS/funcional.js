@@ -56,6 +56,12 @@ let m = {
 
         }
 
+        else if(tecla == "^"){
+
+        m.calculadora("potencia", "^");
+
+        }
+
         else if(tecla == "Enter"){
 
             m.calculadora("igual", "=");
@@ -172,23 +178,36 @@ let m = {
 
             break;
 
+            case "potencia":
+
+            p.operaciones.innerHTML += "^";
+
+            p.cantdecimal = false;
+
+            break;
+
             case "igual":
 
-             // VALIDAR DIVISION POR 0
+            // VALIDAR DIVISION POR 0
             if (p.operaciones.innerHTML.includes("/0")) {
 
-                p.operaciones.innerHTML = "No se puede dividir";
+            p.operaciones.innerHTML = "No se puede dividir";
 
+            } else {
 
-             } else {
+            let operacion =
+            p.operaciones.innerHTML.replaceAll("^", "**");
 
-        p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
-        p.resultado = true;
+            p.operaciones.innerHTML = eval(operacion);
+
+            p.resultado = true;
 
             }
 
             break;
+
             }
+
 
             
     },
